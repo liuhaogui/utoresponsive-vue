@@ -6,14 +6,19 @@
     <auto-responsive
       v-bind="options"
       ref="autoresponsive"
+      :list="arrayList"
     >
-      <div v-for="item in arrayList" :style="style" class="item">{{ item }}</div>
+
+<!--      <draggable v-model="arrayList" draggable=".item" >-->
+        <div v-for="item in arrayList" :style="style" class="item">{{ item }}</div>
+<!--      </draggable>-->
     </auto-responsive>
   </div>
 </template>
 <script>
 import Utils from './utils';
 import AutoResponsive from '../src/autoresponsive.vue';
+import draggable from 'vuedraggable';
 
 const style = {
   height: '100px',
@@ -46,7 +51,7 @@ const elementId = 'simplest';
 export default {
   name: elementId,
   components: {
-    'auto-responsive': AutoResponsive
+    'auto-responsive': AutoResponsive, draggable
   },
   props: {
     containerWidth: {
@@ -72,9 +77,9 @@ export default {
         containerHeight: null,
         itemClassName: 'item',
         transitionDuration: '.8',
-        transitionTimingFunction: 'easeIn',
-        onItemDidLayout: this.onItemDidLayout,
-        onContainerDidLayout: this.onContainerDidLayout
+        transitionTimingFunction: 'easeIn'
+        // onItemDidLayout: this.onItemDidLayout,
+        // onContainerDidLayout: this.onContainerDidLayout
       }
     };
   },

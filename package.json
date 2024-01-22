@@ -1,7 +1,7 @@
 {
-  "name": "autoresponsive-vue",
+  "name": "autoresponsive-vue2",
   "description": "Auto Responsive Layout Library For Vue",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "keywords": [
     "vue",
     "responsive",
@@ -28,11 +28,12 @@
   "main": "dist",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xudafeng/autoresponsive-vue.git"
+    "url": "https://github.com/liuhaogui/autoresponsive-vue.git"
   },
   "dependencies": {
     "autoresponsive-core": "^1.0.1",
-    "exenv": "^1.2.2"
+    "exenv": "^1.2.2",
+    "vuedraggable": "^2.24.3"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

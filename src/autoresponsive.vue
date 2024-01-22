@@ -1,6 +1,8 @@
 <template>
   <div ref="container" :class="`${prefixClassName}-container`" :style="containerStyle">
-    <slot></slot>
+    <draggable  draggable=".item" ref="containerDraggable" :list="list">
+     <slot></slot>
+    </draggable>
   </div>
 </template>
 <script>
@@ -10,10 +12,16 @@ import {
 
 import pkg from '../package';
 import AnimationManager from './animation';
+import draggable from 'vuedraggable';
 
 export default {
   name: 'auto-responsive',
+  components: { draggable },
   props: {
+    list: {
+      type: Array,
+      default: []
+    },
     containerWidth: {
       type: Number,
       default: null
@@ -110,7 +118,12 @@ export default {
       let containerHeight = this.verticalDirection === 'bottom' || this.fixedContainerHeight ? this.containerHeight : 0;
 
       const container = this.$refs.container;
-      const children = container.children;
+      // const container = this.$refs.containerDraggable;
+      // console.log('container', container);
+      // console.log('container.children', container.children);
+      // console.log('this.$refs.containerDraggable.children', this.$refs.containerDraggable.children);
+
+      const children = container.children[0].children;
       const memoryNodeList = this.$slots.default.filter(i => i.tag);
 
       for (var i = 0; i < children.length; i++) {

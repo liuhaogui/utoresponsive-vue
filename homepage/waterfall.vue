@@ -2,8 +2,9 @@
   <div :id="elementId">
     <auto-responsive
       v-bind="options"
+      :list="styleList"
     >
-      <div v-for="(item, index) in styleList" @click="clickItemHandle" :style="styleList[index]" class="item">{{ index }}</div>
+      <div v-for="(item, index) in styleList"  :style="styleList[index]" class="item">{{ index }}</div>
     </auto-responsive>
   </div>
 </template>
@@ -83,7 +84,7 @@ export default {
       for (let i = 0; i < nodes.length; i++) {
         if (nodes[i] === e.target) {
           const style = this.styleList[i];
-          style.width = style.width === '310px' ? '150px' : '310px';
+          // style.width = style.width === '310px' ? '150px' : '310px';
           Vue.set(this.styleList, i, style);
         }
       }

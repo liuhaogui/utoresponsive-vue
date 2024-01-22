@@ -66,6 +66,7 @@ class AnimationManager {
       style[`${prefix}Transform`] = `translate3d(${x}px, ${y}px, 0)`;
     });
 
+    // console.log('----- sytle ', style);
     this.mixAnimation(style);
     return style;
   }
