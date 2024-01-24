@@ -1,6 +1,6 @@
 <template>
   <div ref="container" :class="`${prefixClassName}-container`" :style="containerStyle">
-    <draggable  draggable=".item" ref="containerDraggable" :list="list">
+    <draggable  draggable=".item" ref="containerDraggable" :list="list" @unchoose="unchoose">
      <slot></slot>
     </draggable>
   </div>
@@ -93,6 +93,9 @@ export default {
     this.updateChildren();
   },
   methods: {
+    unchoose() {
+      this.updateChildren();
+    },
     mixItemInlineStyle(s) {
       const itemMargin = this.itemMargin;
       let style = {
